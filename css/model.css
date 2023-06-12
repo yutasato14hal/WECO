@@ -1,0 +1,467 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: rgb(255, 243, 224);
+  color: #0e0400;
+}
+
+
+footer {
+  width: 100%;
+  height: 240px;
+  background-color: #666;
+}
+
+/* .logo{
+  padding: 20px;
+}
+.logo img {
+  width: 180px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
+#heroImg img{
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+
+}
+section.about {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+.sectionTitle {
+  width: 100%;
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 80px;
+}
+.aboutImg {
+  margin-bottom: 40px;
+}
+.aboutImg img {
+  width: 80%;
+  margin: 0 auto;
+  object-fit: cover;
+  display: block;
+}
+.aboutTextArea {
+  width: 60%;
+  margin: 0 auto;
+}
+p.aboutText {
+  font-size: 20px;
+  line-height: 2.5rem;
+  text-align: center;
+}
+
+.sectionStep {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 120px;
+  margin-bottom: 160px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+.container:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.stepImgContainer {
+  width: 70%;
+  z-index: 1;
+}
+.innerTextContainer{
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.695);
+  border-radius: 30px;
+}
+.stepTextContainer_1 {
+  width: 50%;
+  z-index: 2;
+  position: absolute;
+  left: 0px;
+}
+.stepTextContainer_1 p {
+  font-size: 18px;
+  padding-top: 10px;
+  line-height: 1.4rem;
+}
+.stepTextContainer_2 {
+  width: 50%;
+  z-index: 2;
+  position: absolute;
+  right: 0px;
+}
+.stepTextContainer_2 p {
+  font-size: 18px;
+  padding-top: 10px;
+  line-height: 1.4rem;
+}
+.stepTextContainer_3 {
+  width: 50%;
+  z-index: 2;
+  position: absolute;
+  left: 0px;
+}
+.stepTextContainer_3 p {
+  font-size: 18px;
+  padding-top: 10px;
+  line-height: 1.4rem;
+}
+
+.stepImgContainer img:nth-child(1) {
+  width: 100%;
+  height: auto;
+}
+
+.stepImgContainer img:nth-child(2) {
+  width: 20%;
+  height: auto;
+}
+.stepImgContainer img:nth-child(3) {
+  width: 700px;
+  height: auto;
+}
+.startBtn {
+  display: block;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  width: 200px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #333;
+  color: aliceblue;
+  padding-top: 7px;
+  padding-left: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 100px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+a.startBtn:hover {
+  background-color: rgb(124, 124, 124);
+  color: rgb(215, 215, 215);
+}
+.startBtn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+} */
+
+/* ****************************************
+model.html 
+**********************************/
+
+/* Nav items */
+.menu {
+  list-style: none;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  margin-top: 52px;
+  padding: 0 0 10px 0;
+  clear: both;
+  background: #444;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  transform: scale(1, 0);
+  transform-origin: top;
+}
+
+/* Hamburger menu button */
+.menu-btn:checked ~ .menu {
+  transform: scale(1, 1);
+  transform-origin: top;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+
+/* Hamburger menbu text */
+.menu a {
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ddd;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.menu li {
+  border-top: 1px solid rgb(75, 75, 75);
+  padding: 15px 0;
+  margin: 0 54px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.menu-btn:checked ~ .menu a,
+.menu-btn:checked ~ .menu li {
+  opacity: 1;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.menu-icon {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding: 24px 14px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.navicon {
+  background: rgb(255, 255, 255);
+  display: block;
+  height: 3px;
+  width: 26px;
+  position: relative;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+
+.navicon:before,
+.navicon:after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: rgb(255, 255, 255);
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+
+.navicon:before {
+  top: 9px;
+}
+
+.navicon:after {
+  bottom: 9px;
+}
+
+/* Hamburger Menu Animation Start */
+.menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before {
+  top: 0;
+}
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  bottom: 0;
+}
+
+.menu-btn:checked ~ .menu-icon .navicon {
+  background: rgba(0, 0, 0, 0);
+  transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+/* Hamburger Menu Animation End */
+
+/* Navbar Container */
+.navtext-container {
+  width: 100%;
+  height: 52px;
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navbar Text */
+.navtext {
+  position: absolute;
+  text-transform: uppercase;
+  color: rgb(236, 236, 236);
+  letter-spacing: 4px;
+  font-size: 20px;
+}
+
+.modelContainer {
+  display: flex;
+  margin: 0 auto;
+  height: 100vh;
+}
+.typeContainer {
+  width: 25%;
+  padding-left: 80px;
+  padding-top: 30px;
+}
+.canvasContainer {
+  width: 75%;
+}
+canvas {
+  width: 100%;
+}
+.types {
+  height: 110px;
+  margin-top: 20px;
+}
+
+.typeTitle {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.decision {
+  display: block;
+  align-items: center;
+  position: absolute;
+  bottom: 8%;
+  right: 5%;
+  width: 200px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: rgb(25, 25, 25);
+  color: aliceblue;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+a.decision:hover {
+  background-color: rgb(124, 124, 124);
+  color: rgb(215, 215, 215);
+}
+.decision span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.boxContainer {
+  display: flex;
+  padding-left: 50px;
+}
+.box1 {
+  width: 60%;
+}
+.cart {
+  padding: 0 30px;
+}
+.cart h1 {
+  padding-left: 50px;
+}
+.product {
+  display: flex;
+  padding: 24px;
+  border-bottom: #666 solid 0.5px;
+  height: 200px;
+}
+.productText {
+  padding-top: 20px;
+  margin-left: 20px;
+}
+.cartPrice {
+  margin-top: 30px;
+  float: right;
+}
+.box2 {
+  position: relative;
+}
+.Box2InnerContainer {
+  background-color: #fff;
+  position: absolute;
+  top: 20px;
+  left: 120px;
+  width: 280px;
+  height: 400px;
+  border-radius: 30px;
+}
+.msLogin {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.loginInput {
+  text-align: center;
+  margin-top: 25px;
+}
+.wecoLogin {
+  height: 40px;
+  margin-top: 10px;
+}
+.wecoLogin:nth-child(2) {
+  margin-bottom: 30px;
+}
+
+.loginBtn {
+  width: 60%;
+  display: block;
+  text-decoration: none;
+  color: #000;
+  padding: 14px 0;
+  background-color: rgb(91, 159, 222);
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.msSignUp {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 16px;
+}
+.signupLoginC {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+.titleLS {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+.LSForm {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+.LSLabel {
+  width: 180px;
+  float: left;
+}
+.LSForm input {
+  width: 60%;
+  height: 40px;
+  margin-bottom: 15px;
+}
+.msSignup {
+  text-decoration: none;
+  color: rgb(94, 95, 136);
+  float: right;
+  margin-top: 20px;
+}
+.LSBtn {
+  margin-top: 40px;
+  background-color: rgb(112, 126, 185);
+  border: 0.5px;
+  border-radius: 10px;
+  font-size: 18px;
+}

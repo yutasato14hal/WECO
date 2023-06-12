@@ -1,0 +1,100 @@
+.cart {
+     width: 90%;
+     height: auto;
+     margin: 0 auto;
+}
+.secsion-title{
+     font-size: large;
+}
+.containers{
+     display: flex;
+     justify-content: space-between;
+}.con1{
+     display: block;
+     width: 60%;
+}
+
+.item{
+     display: flex;
+     justify-content: space-between;
+     padding:20px 0;
+     border-bottom: 0.5px solid #000;
+}
+.f_flex{
+     width: 30%;
+}
+.f_flex img{
+     width: 100%;
+}
+.s_flex{
+     width: 60%;
+}
+.item-text{
+     font-weight: bold;
+}
+.count{
+     display: flex;
+     justify-content: flex-end;
+     margin-top: 20px;
+}
+.count input{
+     width: 10%;
+}
+.item-price{
+     display: flex;
+     justify-content: flex-end;
+     font-weight: bold;
+}
+.address{
+     margin-top: 10px;
+     margin-left: 30px;
+}
+.con2{
+     position: fixed;
+     width: 30%;
+     top: auto;
+     right: 60px;
+}
+.form-container{
+     background-color: rgb(159, 195, 195);
+     border-radius: 30px;
+     text-align: center;
+     padding: 40px 0 60px 0;
+}
+.info-ms{
+     color: #222;
+     font-size: large;
+     font-weight: bold;
+}
+.info-ms:nth-child(2n){
+     margin-top: 40px;
+}
+
+.inputs{
+     height: 40px;
+     margin-bottom: 10px;
+     border-radius: 5px;
+     border: none;
+}
+.inputs:nth-child(2n){
+     margin-bottom: 20px;
+}
+.btn{
+     margin: 0 auto;
+     width: 40%;
+     padding: 13px;
+     display: block;
+     color: black;
+     text-decoration: none;
+     background-color: antiquewhite;
+     border-radius: 5px;
+     margin-bottom: 40px;
+}
+
+.total{
+     
+     font-size: 20px;
+}
+.input_pay{
+     margin-left: 30px;
+}

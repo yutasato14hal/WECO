@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/nomalize.css">
+    <link rel="stylesheet" href="./css/model.css">
+
+    <link rel="stylesheet" href="./css/setting.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+        <link rel="icon" href="Images/facicon.ico" />
+
+    <title>WECO/createModel</title>
+</head>
+
+<body>
+    <main>
+        <div class="modelContainer">
+            <div class="typeContainer">
+                <div class="types">
+                    <h3 class="typeTitle">性別</h3>
+                    <input type="radio" name="gender" id="radio1" value="man" checked>
+                    <label for="gender1">男性</label>
+                    <input type="radio" name="gender" id="radio2" value="woman">
+                    <label for="gender2">女性</label>
+                </div>
+                <div class="types">
+                    <label for="height" class="typeTitle">身長</label>
+                    <br />
+                    <select name="height" id="height">
+                        <option value="op1">選択してください</option>
+                        <option value="op2">150~159cm</option>
+                        <option value="op3">160~169cm</option>
+                        <option value="op3">170~179cm</option>
+                    </select>
+                </div>
+                <div class="types">
+                    <label for="bodyTypes" class="typeTitle">体型</label>
+                    <br />
+                    <select name="bodyTypes" id="bodyTypes">
+                        <option value="op1">選択してください</option>
+                        <option value="op2">やせ型</option>
+                        <option value="op3">ふつう</option>
+                        <option value="op3">ぽっちゃり</option>
+                    </select>
+                </div>
+                <div class="types">
+                    <label for="skinColor " class="typeTitle">肌の色</label>
+                    <br />
+                    <input type="range" id="inputSlideBar" min="0" max="2" step="1" value="1">
+                </div>
+            </div>
+            <div class="canvasContainer" id="model">
+
+            </div>
+        </div>
+        <a class="decision" href="kisekae.html"><span>決定する</span></a>
+    </main>
+    <!-- <footer></footer> -->
+    <script type="module" src="./js/model.js"></script>
+</body>
+
+</html>

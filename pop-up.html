@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/pop-up.css"><!--css読み込み（ディレクトリは適宜変更）--><!----------コピペ忘れずに！---------->
+    <title></title>
+</head>
+<body>
+<!----------ここからコピペ---------->
+
+    <!--ポップアップ-->
+        <div class="popup-wrapper">
+            <input id="open" type="checkbox">
+            <label for="open" class="open-btn">サイズを判定する</label>
+            <label for="open" class="overlay"></label>
+
+            <div class="popup-content">
+                <!--ユーザー情報（ユーザーが選択した情報を表示）-->
+                    <div id="data1">
+                        <div id="data1-1" class="erase">
+                            <!--<p id="data1_h1">~~~~~選択したもの~~~~~</p>-->
+                            <div id="data_sex">
+                                <p class="data1_title" style="display:inline;">性別：</p>
+                                <p id="data_sex_text1" style="display:inline;"></p>
+                            </div><!--/#data_sex-->
+
+                            <div id="data_site">
+                                <p class="data1_title" style="display:inline;">部位：</p>
+                                <p id="data_site_text1" style="display:inline;"></p>
+                            </div><!--/#data_site-->
+
+                            <div id="data_size">
+                                <p class="data1_title" style="display:inline;">サイズ：</p>
+                                <p id="data_size_text1" style="display:inline;"></p>
+                            </div><!--/#data_size-->
+                        </div><!--/#data1-1-->
+
+                        <div id="data1-2" class="erase">
+                            <div id="data_number1">
+                                <p id="data_number1_text1" class="data1_title" style="display:inline;"></p>
+                                <p id="data_number1_text2" style="display:inline;"></p><small>(cm)</small>
+                            </div><!--/#data_number1-->
+
+                            <div id="data_number2" class="erase">
+                                <p id="data_number2_text1" class="data1_title" style="display:inline;"></p>
+                                <p id="data_number2_text2" style="display:inline;"></p><small>(cm)</small>
+                            </div><!--/#data_number2-->
+                        </div><!--/#data1-2-->
+                    </div><!--/#data1-->
+                <!--/ユーザー情報（ユーザーが選択した情報を表示）-->
+
+                <!--選択-->
+                    <!--共通項目-->
+                        <div id="form1">
+                            <div id="form1-1">
+                                <label>性別：</label>
+                                <label><input id="men" type="radio" name="sex" value="men" style="transform: scale(1.05);" checked>男性</label>
+                                <label><input id="women" type="radio" name="sex" value="women" style="transform: scale(1.05);">女性</label>
+                            </div><!--/#form1-1-->
+
+                            <div id="form1-2">
+                                <label>部位：</label>
+                                <label><input id="tops" type="radio" name="site" value="tops" style="transform: scale(1.05);" checked>トップス</label>
+                                <label><input id="bottoms" type="radio" name="site" value="bottoms" style="transform: scale(1.05);">ボトムス</label>
+                            </div><!--/#form1-2-->
+
+                            <div  id="form1-3">
+                                <label>サイズ：</label>
+                                <label><input id="s" type="radio" name="size" value="s" style="transform: scale(1.05);" checked>S</label>
+                                <label><input id="m" type="radio" name="size" value="m" style="transform: scale(1.05);">M</label>
+                                <label><input id="l" type="radio" name="size" value="l" style="transform: scale(1.05);">L</label>
+                                <label><input id="ll" type="radio" name="size" value="ll" style="transform: scale(1.05);">LL</label>
+                            </div><!--/#form1-3-->
+                        </div><!--/#form1-->
+                    <!--/共通項目-->
+
+                    <!--選択別項目-->
+                        <div id="form2" class="erase">
+                            <div  id="form2-1">
+                                <label id="form_text1"></label>
+                                <input id="form_number1" type="number" value=""><small>(cm)</small>
+                            </div><!--/#form2-1-->
+
+                            <div id="form2-2" class="erase">
+                                <label id="form_text2"></label>
+                                <input id="form_number2" type="number" value=""><small>(cm)</small>
+                            </div><!--/#form2-2-->
+                        </div><!--/#form2-->
+                    <!--/選択別項目-->
+                <!--/選択-->
+
+                <!--結果-->
+                    <div id="judge1" class="erase">
+                        <p id="judge_text1"></p>
+                    </div><!--/#judge1-->
+                <!--/結果-->
+
+                <!--ボタン-->
+                    <div id="button1">
+                        <button id="button_change1" class="button_change">次へ</button>
+                        <button id="button_change2" class="button_change erase">結果を見る</button>
+                        <button id="button_change3" class="button_change erase">閉じる</button>
+                    </div><!--/#button1-->
+                <!--/ボタン-->
+            </div><!--/.popup-content-->
+        </div><!--/.popup-wrapper-->
+    <!--/ポップアップ-->
+
+    <!-----javascript----->
+        <script>
+            /*****ユーザー情報*****/
+            /***共通情報***/
+            var data1 = document.getElementById('data1-1');
+            var data_sex_text1 = document.getElementById('data_sex_text1');
+            var data_site_text1 = document.getElementById('data_site_text1');
+            var data_size_text1 = document.getElementById('data_size_text1');
+            /***選択別情報***/
+            var data2 = document.getElementById('data1-2');
+            var data3 = document.getElementById('data_number2');
+            var data_number1_text1 = document.getElementById('data_number1_text1');
+            var data_number1_text2 = document.getElementById('data_number1_text2');
+            var data_number2_text1 = document.getElementById('data_number2_text1');
+            var data_number2_text2 = document.getElementById('data_number2_text2');
+            /*****共通項目*****/
+            var form1 = document.getElementById('form1');
+            var form_sex = document.getElementsByName('sex');
+            var form_site = document.getElementsByName('site');
+            var form_size = document.getElementsByName('size');
+            /*****選択別項目*****/
+            var form2 = document.getElementById('form2');
+            var form_text1 = document.getElementById('form_text1');
+            var form_number1 = document.getElementById('form_number1');
+            var form3 = document.getElementById('form2-2');
+            var form_text2 = document.getElementById('form_text2');
+            var form_number2 = document.getElementById('form_number2');
+            /*****結果*****/
+            var judge1 = document.getElementById('judge1');
+            var judge_text1 = document.getElementById('judge_text1');
+            /*****ボタン*****/
+            var button1 = document.getElementById('button_change1');
+            var button2 = document.getElementById('button_change2');
+            var button3 = document.getElementById('button_change3');
+            /*****変数*****/
+            /***一回目***/
+            var user_sex1 = '';
+            var user_site1 = '';
+            var user_size1 = '';
+            var key1 = '';
+            /***二回目***/
+            var user_number1 = 0;
+            var user_number2 = 0;
+            var judge_number1 = 0;
+            var judge_number2 = 0;
+            var key2 = '';
+            var text = '';
+
+
+            /*****ボタンクリックの関数定義（一回目）*****/
+            button1.addEventListener('click', button_click1);
+            function button_click1(){
+                /*****情報取得（性別）*****/
+                var length_sex1 = form_sex.length;
+                for(let i = 0; i < length_sex1; i++){
+                    if(form_sex.item(i).checked){
+                        user_sex1 = form_sex.item(i).value;
+                    }
+                }
+                /*****情報取得（部位）*****/
+                var length_site1 = form_site.length;
+                for(let i = 0; i < length_site1; i++){
+                    if(form_site.item(i).checked){
+                        user_site1 = form_site.item(i).value;
+                    }
+                }
+                /*****情報取得（サイズ）*****/
+                var length_size1 = form_size.length;
+                for(let i = 0; i < length_size1; i++){
+                    if(form_size.item(i).checked){
+                        user_size1 = form_size.item(i).value;
+                    }
+                }
+
+                /*****画面切り替え*****/
+                /***ユーザー情報***/
+                data1.classList.remove('erase');
+                /***選択***/
+                form1.classList.add('erase');
+                form2.classList.remove('erase');
+                /***ボタン***/
+                button1.classList.add('erase');
+                button2.classList.remove('erase');
+
+                /*****ユーザー情報入力*****/
+                /***性別***/
+                if(user_sex1 == 'men'){
+                    data_sex_text1.innerText = '男性';
+                }else if(user_sex1 == 'women'){
+                    data_sex_text1.innerText = '女性';
+                }
+                /***部位***/
+                if(user_site1 == 'tops'){
+                    data_site_text1.innerText = 'トップス';
+                }else if(user_site1 == 'bottoms'){
+                    data_site_text1.innerText = 'ボトムス';
+                }
+                /***サイズ***/
+                if(user_size1 == 's'){
+                    data_size_text1.innerText = 'S';
+                }else if(user_size1 == 'm'){
+                    data_size_text1.innerText = 'M';
+                }else if(user_size1 == 'l'){
+                    data_size_text1.innerText = 'L';
+                }else if(user_size1 == 'll'){
+                    data_size_text1.innerText = 'LL';
+                }
+
+                /*****選択別フォーム切り替え（中身変更）*****/
+                if(user_sex1 == 'men'){
+                    if(user_site1 == 'tops'){
+                        key1 = 'mt';
+                        form_text1.innerText = 'チェスト：';
+                        document.getElementById('form_number1').value = 96;
+                    }else if(user_site1 == 'bottoms'){
+                        key1 = 'mb';
+                        form_text1.innerText = 'ウエスト：';
+                        document.getElementById('form_number1').value = 84;
+                    }
+                }else if(user_sex1 == 'women'){
+                    if(user_site1 == 'tops'){
+                        key1 = 'wt';
+                        form_text1.innerText = 'バスト：';
+                        document.getElementById('form_number1').value = 86;
+                    }else if(user_site1 == 'bottoms'){
+                        key1 = 'wb';
+                        form3.classList.remove('erase');
+                        form_text1.innerText = 'ウエスト：';
+                        document.getElementById('form_number1').value = 69;
+                        form_text2.innerText = 'ヒップ：';
+                        document.getElementById('form_number2').value = 94;
+                    }
+                }
+            }
+
+
+            /*****ボタンクリックの関数定義（二回目）*****/
+            button2.addEventListener('click', button_click2);
+            function button_click2(){
+                /*****情報取得（数値）*****/
+                user_number1 = form_number1.value;
+                if(key1 == 'wb'){
+                    user_number2 = form_number2.value;
+                }
+
+                /*****画面切り替え*****/
+                /***ユーザー情報***/
+                data2.classList.remove('erase');
+                if(key1 == 'wb'){
+                    data3.classList.remove('erase');
+                }
+                /***選択***/
+                form2.classList.add('erase');
+                if(key1 == 'wb'){
+                    form3.classList.add('erase');
+                }
+                /***結果***/
+                judge1.classList.remove('erase');
+                /***ボタン***/
+                button2.classList.add('erase');
+                button3.classList.remove('erase');
+
+                /*****ユーザー情報入力*****/
+                if(key1 == 'mt'){
+                    data_number1_text1.innerText = 'チェスト：';
+                    data_number1_text2.innerText = user_number1;
+                }else if(key1 == 'mb'){
+                    data_number1_text1.innerText = 'ウエスト：';
+                    data_number1_text2.innerText = user_number1;
+                }else if(key1 == 'wt'){
+                    data_number1_text1.innerText = 'バスト：';
+                    data_number1_text2.innerText = user_number1;
+                }else if(key1 == 'wb'){
+                    data_number1_text1.innerText = 'ウエスト：';
+                    data_number1_text2.innerText = user_number1;
+                    data_number2_text1.innerText = 'ヒップ：';
+                    data_number2_text2.innerText = user_number2;
+                }
+
+                /*****サイズ判定のための計算*****/
+                if(key1 == 'mt'){
+                    if(user_size1 == 's'){
+                        judge_number1 = user_number1 - 84;
+                    }else if(user_size1 == 'm'){
+                        judge_number1 = user_number1 - 92;
+                    }else if(user_size1 == 'l'){
+                        judge_number1 = user_number1 - 100;
+                    }else if(user_size1 == 'll'){
+                        judge_number1 = user_number1 - 108;
+                    }
+                }else if(key1 == 'mb'){
+                    if(user_size1 == 's'){
+                        judge_number1 = user_number1 - 72;
+                    }else if(user_size1 == 'm'){
+                        judge_number1 = user_number1 - 80;
+                    }else if(user_size1 == 'l'){
+                        judge_number1 = user_number1 - 88;
+                    }else if(user_size1 == 'll'){
+                        judge_number1 = user_number1 - 96;
+                    }
+                }else if(key1 == 'wt'){
+                    if(user_size1 == 's'){
+                        judge_number1 = user_number1 - 80;
+                    }else if(user_size1 == 'm'){
+                        judge_number1 = user_number1 - 83;
+                    }else if(user_size1 == 'l'){
+                        judge_number1 = user_number1 - 89;
+                    }else if(user_size1 == 'll'){
+                        judge_number1 = user_number1 - 95;
+                    }
+                }else if(key1 == 'wb'){
+                    if(user_size1 == 's'){
+                        judge_number1 = (user_number1 + user_number2) - 151;
+                    }else if(user_size1 == 'm'){
+                        judge_number1 = (user_number1 + user_number2) - 157;
+                    }else if(user_size1 == 'l'){
+                        judge_number1 = (user_number1 + user_number2) - 169;
+                    }else if(user_size1 == 'll'){
+                        judge_number1 = (user_number1 + user_number2) - 181;
+                    }
+                }
+
+                /*****判定結果のためのkey*****/
+                if(key1 == 'mt' || key1 == 'mb'){
+                    if(judge_number1 > 4){
+                        key2 = 'up';
+                    }else if(judge_number1 < -4){
+                        key2 = 'down';
+                    }else if(judge_number1 <= 4 && judge_number1 >= -4){
+                        key2 = 'stay';
+                    }
+                }else if(key1 == 'wt'){
+                    if(judge_number1 > 3){
+                        key2 = 'up';
+                    }else if(judge_number1 < -3){
+                        key2 = 'down';
+                    }else if(judge_number1 <= 3 && judge_number1 >= -3){
+                        key2 = 'stay';
+                    }
+                }else if(key1 == 'wb'){
+                    if(judge_number1 > 6){
+                        key2 = 'up';
+                    }else if(judge_number1 < -6){
+                        key2 = 'down';
+                    }else if(judge_number1 <= 6 && judge_number1 >= -6){
+                        key2 = 'stay';
+                    }
+                }
+
+                /*****判定結果テキスト*****/
+                if(key2 == 'up'){
+                    text = 'もうひとつ大きいサイズの方がぴったりだよ！';
+                }else if(key2 == 'down'){
+                    text = 'もうひとつ小さいサイズの方がぴったりだよ！';
+                }else if(key2 == 'stay'){
+                    text = 'このサイズがぴったりだよ！';
+                }
+                judge_text1.innerHTML = text;
+            }
+
+
+            /*****ボタンクリックの関数定義（三回目）*****/
+            button3.addEventListener('click', button_click3);
+            function button_click3(){
+                /*****リロード（元に戻す）*****/
+                location.reload();
+            }
+        </script>
+    <!-----/javascript----->
+
+<!----------ここまでコピペ---------->
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="./css/setting.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+        <link rel="icon" href="Images/facicon.ico" />
+    <title>ログイン</title>
+</head>
+
+<body>
+    <section class="signupLoginC">
+        <h1 class="titleLS">ログイン</h1>
+        <form class="LSForm" action="login.php" method="post">
+            <label class="LSLabel">メールアドレス</label><input type="email" name="mailaddress" maxlength="30" required>
+            <br>
+            <label class="LSLabel">パスワード</label><input type="password" name="password" maxlength="30" required>
+            <br>
+            <input class="LSBtn" type="submit" value="ログイン">
+        </form>
+        <a class="msSignup" href="entry.html">アカウントの新規作成はこちら➜</a>
+    </section>
+</body>
+
+</html>

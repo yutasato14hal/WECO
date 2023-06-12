@@ -1,0 +1,214 @@
+/***************ここからコピペ***************/
+
+/**********size-judge↓**********/
+
+/*****基本↓*****/
+
+.erase {
+    display: none;
+}
+
+.popup-content {
+    color: #000000;/*文字*/
+}
+
+/*****基本↑*****/
+
+/*****ユーザー情報↓*****/
+
+#data1 {
+    text-align: left;
+    margin: 0 0 75px 25%;
+
+    width: 50%;
+    height: auto;
+    border-radius: 5px;
+    background-color: #e0e0e0;/*ユーザー情報の背景*/
+}
+
+#data1 p {
+    margin: 7.5px 7.5px 7.5px 7.5px;
+}
+
+/*
+#data1_h1 {
+    font-size: 23px;
+}
+*/
+
+.data1_title {
+    margin: 0 15px 0  0;
+}
+
+#data1-2 small {
+    margin: 0 0 0 5px;
+    font-size: 15px;
+}
+
+/*****ユーザー情報↑*****/
+
+/*****選択↓*****/
+.form-flex{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#form1, #form2 {
+    text-align: left;
+    margin: 0 0 50px 25%;
+}
+
+#form1 label {
+    margin: 0 15px 0 0;
+}
+
+#form1-1 {
+    margin: 0 0 15px 0;
+}
+
+#form1-2 {
+    margin: 0 0 15px 0;
+}
+
+#form2 label {
+    margin: 0 15px 0 0;
+}
+
+#form2 small {
+    font-size: 15px;
+}
+
+#form2-2 {
+    margin: 15px 0 0 0;
+}
+
+.popup-content input {
+ 
+    background-color: #e0e0e0;
+    color: #000;
+    border-color: #f7c3bf;  
+    
+}
+.data_site_text1{
+padding: 10px;
+border-radius: 30px;
+}
+#form_number1{
+    width: 240px;
+    height: 30px;
+    align-items: center;
+    font-size: 18px;
+}
+
+/*****選択↑*****/
+
+/*****結果↓*****/
+
+#judge1 {
+    text-align: left;
+    margin: 0 0 50px 25%;
+}
+
+/*****結果↑*****/
+
+/*****ボタン↓*****/
+
+#button1 {
+    text-align: center;
+}
+
+#button_change1, #button_change2, #button_change3 {
+    background-color: #efebe0;/*ボタンの背景*/
+    color: #000000;/*ボタンの文字*/
+    border-bottom: solid 2px;
+    border-color: #8ac8cf;/*ボタンの枠線*/
+    font-size: 18px;
+}
+
+#button_change1:hover, #button_change2:hover, #button_change3:hover {
+    cursor: pointer;
+}
+
+/*****ボタン↑*****/
+
+/**********size-judge↑**********/
+
+
+/**********pop-up↓**********/
+
+.popup-content {
+    visibility: hidden;
+    opacity: 0;
+}
+
+#open:checked ~ .popup-content {
+    visibility: visible;
+    opacity: 1;
+    transition: .3s;
+}
+
+#open:checked ~ .overlay{
+    background: rgba(79, 78, 75, 0.5);/*ポップアップコンテンツの周囲のぼかし*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: .3s;
+    z-index: 9999;
+}
+
+.open-btn {
+    display: block;
+    position: absolute;
+    top: 180px;
+    right: 20px;
+    width: 280px;
+    text-align: center;
+    background-color: #9fc3c3;/*ボタンの背景*/
+    color: #222222;/*ボタンの文字*/
+    font-weight: bold;
+    margin-left: 40px;
+    padding: 20px 0px;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    box-shadow: 5px 5px 7px 0 rgba(50, 50, 50, 0.5);
+}
+
+.open-btn:hover {
+    cursor: pointer;
+    background-color: #b9e1e1;/*ボタンの背景*/
+    color: #605f5f;/*ボタンの文字*/
+}
+
+.popup-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    background-color: #efebe0;/*ポップアップコンテンツの背景*/
+    z-index: 9999;
+    transition: .1s;
+    padding: 50px;
+    font-size: 20px;/*font基本サイズ*/
+}
+
+@media (orientation: landscape) {
+    .popup-content {
+        width: 55%;
+    }
+}
+
+input#open {
+    display: none;
+}
+
+
+/**********pop-up↑**********/
+
+/***************ここまでコピペ***************/

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/model.css">
+
+    <link rel="stylesheet" href="./css/setting.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+        <link rel="icon" href="Images/facicon.ico" />
+    <title>新規登録</title>
+
+</head>
+
+<body>
+    <section class="signupLoginC">
+        <h1 class="titleLS">新規会員登録</h1>
+        <form class="LSForm" name="sign_up" action="entry.php" method="post">
+            <label class="LSLabel">名前<span
+                    style="font-size: 13px; color: red; margin-left: 3px;">※必須</span></label><input type="text"
+                name="name" maxlength="20" required>
+            <br>
+            <label class="LSLabel">メールアドレス<span
+                    style="font-size: 13px; color: red; margin-left: 3px;">※必須</span></label><input type="email"
+                name="mailaddress" maxlength="50" required>
+            <br>
+            <label class="LSLabel">パスワード<span
+                    style="font-size: 13px; color: red; margin-left: 3px;">※必須</span></label><input type="password"
+                name="password" maxlength="30" required>
+            <br>
+            <label class="LSLabel">郵便番号<span
+                    style="font-size: 13px; color: red; margin-left: 3px;">※必須</span></label><input type="text"
+                name="postcode" minlength="7" maxlength="7" placeholder="ハイフン無し　例)1600023" pattern="^[0-9]+$" required>
+            <br>
+            <label class="LSLabel">住所<span
+                    style="font-size: 13px; color: red; margin-left: 3px;">※必須</span></label><input type="text"
+                name="address" maxlength="40" required>
+            <br>
+            <label class="LSLabel">クレジットカードの使用</label><input type="checkbox" id="checkbox">
+            <div id="input"></div>
+            <input class="LSBtn" type="submit" value='登録'>
+        </form>
+    </section>
+    <script>
+        /*****追加したコード　↓*****/
+        const sign_up_forms = document.forms.sign_up;
+
+        sign_up_forms.postcode.addEventListener('input', e => {
+            fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${e.target.value}`)
+                .then(response => response.json())
+                .then(data => {
+                    sign_up_forms.address.value = data.results[0].address1 + data.results[0].address2 + data.results[0].address3;
+                })
+        })
+        /*****追加したコード　↑*****/
+        function inputChange(event) {
+            // もしチェックされたら
+            if (checkbox.checked) {
+                // inputの要素を作っていく
+                const input1 = document.createElement('input')
+                input1.type = "text"
+                input1.placeholder = "カード番号(ハイフンなし)"
+                input1.name = "cardnumber"
+                input1.setAttribute("maxlength", "16")
+                input1.pattern = "^[0-9]+$"
+                input1.id = "input1"
+                const p = document.createElement('p')
+                // inputの要素を作っていく
+                const input2 = document.createElement('input')
+                input2.type = "text"
+                input2.placeholder = "カード名義"
+                input2.name = "cardname"
+                input2.setAttribute("maxlength", "20")
+                input2.id = "input2"
+                // inputの要素を作っていく
+                const input3 = document.createElement('input')
+                input3.type = "text"
+                input3.placeholder = "有効期限(数値４桁)"
+                input3.name = "cardlimit"
+                input3.setAttribute("maxlength", "4")
+                input1.pattern = "^[0-9]+$"
+                input3.id = "input3"
+                // divの中に作ったinputを入れる
+                div.appendChild(input1)
+                div.appendChild(p)
+                div.appendChild(input2)
+                div.appendChild(input3)
+                // input1のIDを持ってくる
+                const number = document.getElementById('input1')
+                // 入力されたら
+                number.addEventListener('input', () => {
+                    // 絞り込み
+                    if (!(number.value.charAt(0) === '') && !(number.value.charAt(0) === "4") && !(number.value.charAt(0) === "5") && (!(number.value.charAt(0) === "3") || !(number.value.charAt(1) === "") && !(number.value.charAt(1) === "5"))) {
+                        // アレート
+                        alert("クレジットカードが存在しません")
+                    }
+                    
+                    
+                    // VISA
+                    if (number.value.charAt(0) === "4") {
+                        p.innerText = "VISA"
+                    }
+                    // JCB
+                    else if (number.value.charAt(0) === "5") {
+                        p.innerText = "JCB"
+                    }
+                    // MasterCard
+                    else if (number.value.charAt(0) === "3" && number.value.charAt(1) === "5") {
+                        p.innerText = "MasterCard"
+                    }
+                    // 初期化
+                    else{
+                        p.innerText = ""
+                    }
+                })
+
+
+
+                // チェックが外されたら
+            } else {
+                // inputの要素を消す
+                div.removeChild(input1)
+                div.removeChild(input2)
+                div.removeChild(input3)
+            }
+        }
+        // divの要素をとってくる
+        const div = document.getElementById('input')
+        // チェックボックスの要素をとってくる
+        const checkbox = document.getElementById('checkbox');
+        // チェックボックスが変わったかどうか判定
+        checkbox.addEventListener('change', inputChange);
+    </script>
+</body>
+
+</html>
